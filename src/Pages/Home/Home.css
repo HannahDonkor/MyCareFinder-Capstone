@@ -1,0 +1,43 @@
+.for-home {
+    text-align: center;
+    margin-top: 80px;
+    background-image: url('hosp.1.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-blend-mode: overlay;
+    /* border: 2px solid red; */
+    /* background-color: rgb(217, 227, 250); */
+    
+    
+}
+
+.home-head {
+    font-size: 40px;
+}
+
+img {
+    width: 80px;
+    /* border-radius: 20px; */
+}
+
+.highlight {
+    color: rgb(26, 63, 232);
+}
+
+h1 img {
+    margin: 0 10px;
+    /* vertical-align: middle; */
+}
+
+.home-c {
+    font-size: 36px;
+}
+
+.home-p {
+    margin-top: 50px;
+}
+
+
+
