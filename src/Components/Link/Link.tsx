@@ -9,7 +9,7 @@ interface LinkProps {
   const Link: React.FC<LinkProps> = ({name, path}) => {
 
   return (
-    <span>
+    <span className='for-link'>
       <a href={path}>
         {name}
       </a>

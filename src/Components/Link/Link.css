@@ -1,3 +1,17 @@
-span :hover{
-    color: rgb(25, 22, 22); 
+/* .for-link {
+    background: rgb(61, 135,216);
+} */
+
+.for-link :hover{
+    color: black; 
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited{
+    color: blue;
+    background-color: transparent;
 }

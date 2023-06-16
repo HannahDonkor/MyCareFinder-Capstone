@@ -1,15 +1,37 @@
 .for-home {
     text-align: center;
-    margin-top: 80px;
     background-image: url('hosp.1.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.5);
     background-blend-mode: overlay;
-    /* border: 2px solid red; */
-    /* background-color: rgb(217, 227, 250); */
-    
+    height: 85vh; 
+}
+
+.home-head {
+    padding-top: 85px;
+    font-size: 40px;
+}
+
+img {
+    width: 80px;
+}
+
+.highlight {
+    color: rgb(26, 63, 232);
+}
+
+h1 img {
+    margin: 0 10px;
+}
+
+.home-c {
+    font-size: 36px;
+}
+
+.home-p {
+    margin-bottom: 50px;
     
 }
 
@@ -33,11 +55,13 @@ h1 img {
 
 .home-c {
     font-size: 36px;
+    margin-bottom: 70px;
 }
 
 .home-p {
     margin-top: 50px;
 }
+
 
 
 

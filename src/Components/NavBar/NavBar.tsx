@@ -1,5 +1,8 @@
 import React from 'react'
 import "./NavBar.css"
+import { BsFillHeartPulseFill } from "react-icons/bs";
+import { TbDental } from "react-icons/tb";
+import { CiStethoscope } from "react-icons/ci";
 import Link from '../Link/Link'
 
 const NavBar = () => {
@@ -9,8 +12,18 @@ const NavBar = () => {
     
     
       <nav>
-        <h3>The CareFinder</h3>
-        <div className='links'>{links.map(link => <Link key={link.id} name = {link.name} path = {link.path}/>)}</div>
+        <div className='logo-container'>
+          <div className='icons'>
+            <BsFillHeartPulseFill color='rgb(26, 63, 232)'/>
+            <CiStethoscope color='rgb(26, 63, 232)'/>
+            <TbDental color='rgb(26, 63, 232)'/>
+          </div>
+          <h3 className='logo-name'>The CareFinder</h3>
+        </div>
+        <div className='links'>
+          {links.map(link => <Link key={link.id} name = {link.name} path = {link.path}/>)}
+        </div>
+
       </nav>
     
     
