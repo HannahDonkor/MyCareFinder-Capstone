@@ -12,6 +12,6 @@ a {
 }
 
 a:link, a:visited{
-    color: blue;
+    color: rgb(26, 63, 232);
     background-color: transparent;
 }

@@ -1,5 +1,12 @@
-.layout {
+/* .layout {
     width: 100vw;
     height: 100vh;
-    /* border: 2px solid blue; */
+
+} */
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* occupy full viewport height */
+    overflow: auto; /* enable scroll if needed */
 }

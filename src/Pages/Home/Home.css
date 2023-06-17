@@ -1,4 +1,8 @@
 .for-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
     text-align: center;
     background-image: url('hosp.1.jpeg');
     background-repeat: no-repeat;
@@ -6,7 +10,11 @@
     background-position: center;
     background-color: rgba(255, 255, 255, 0.5);
     background-blend-mode: overlay;
-    height: 85vh; 
+}
+
+.content {
+    flex: 1 0 auto;
+    overflow: auto;
 }
 
 .home-head {
@@ -61,6 +69,31 @@ h1 img {
 .home-p {
     margin-top: 50px;
 }
+
+.footer{
+    flex-shrink: 0;
+    display: flex;
+    width: 100%;
+    background-color: rgb(77, 82, 234);
+    padding: 1rem 40px;
+    justify-content: space-between;
+  }
+  
+  .footer a{ 
+    text-decoration: none;
+    color: white;
+  } 
+  
+  .footer-icons{
+    display: flex;
+    gap: 20px;
+  }
+  
+  .footer-p{
+    color: white;
+    font-size: 12px;
+
+  }
 
 
 

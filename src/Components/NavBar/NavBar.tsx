@@ -18,7 +18,7 @@ const NavBar = () => {
             <CiStethoscope color='rgb(26, 63, 232)'/>
             <TbDental color='rgb(26, 63, 232)'/>
           </div>
-          <h3 className='logo-name'>The CareFinder</h3>
+          <h3 className='logo-name'>MenZuZu</h3>
         </div>
         <div className='links'>
           {links.map(link => <Link key={link.id} name = {link.name} path = {link.path}/>)}
