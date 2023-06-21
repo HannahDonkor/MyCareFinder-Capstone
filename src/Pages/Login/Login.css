@@ -1,8 +1,11 @@
 form {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 400px;
     margin: 100px auto 0;
+    border: 1px solid grey;
+    padding: 18px 28px;
+    background: rgb(243, 241, 241);
 }
 
 input[type="email"], input[type="password"] {
@@ -24,3 +27,22 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #0056b3;
 }
+
+.reset {
+    /* margin-left: 120px; */
+    font-size: 12px;
+    
+}
+
+.login {
+    text-align: center;
+}
+
+.checkbox {
+    justify-content: space-between;
+}
+
+/* .for-reset {
+    display: flex;
+    justify-content: space-between;
+} */

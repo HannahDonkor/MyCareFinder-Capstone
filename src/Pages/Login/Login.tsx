@@ -29,9 +29,17 @@ function Login() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h4 className='form-title login'>Login</h4>
       <input type="email" value={email} onChange={handleEmailChange} placeholder="Email" required />
       <input type="password" value={password} onChange={handlePasswordChange} placeholder="Password" required />
       <button type="submit">Log in</button>
+      <div className='checkbox'>
+        <div>
+          <input id='accept' className="check" type="checkbox"/>
+          <label htmlFor='accept' className='terms'>Remember</label>
+        </div>
+          <span className='reset'>Forgot password?</span>
+      </div>
     </form>
   );
 }
