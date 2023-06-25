@@ -59,7 +59,7 @@ const Home = () => {
 
         <SearchBar />
 
-        {!results?.type && (
+        {/* {!results?.type && (
           <div>
             <h2>
               All hospitals available{' '}
@@ -70,7 +70,7 @@ const Home = () => {
               </a>
             </h2>
           </div>
-        )}
+        )} */}
       </div>
 
       <div className="footer">
