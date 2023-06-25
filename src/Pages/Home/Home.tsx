@@ -47,21 +47,6 @@ const Home = () => {
     );
   }, [debouncedNameQuery]);
 
-  useEffect(() => {
-    setLoading(true);
-
-    fetch(`https://carefinder-backend.vercel.app/api/hospitals`)
-      .then((res) => res.json())
-      .then((data) => {
-        setLoading(false);
-        setHospitals(data);
-      })
-      .catch((error) => {
-        console.error(error);
-        setLoading(false);
-      });
-  }, []);
-
   return (
     <div className="for-home">
       <div className="content">
@@ -71,21 +56,8 @@ const Home = () => {
         <h2 className="home-c">easily and quickly at just a click</h2>
 
         <p className="home-p">The easiest and fastest to get your desired hospital online</p>
-        <SearchBar
-          onLocationSearch={(location) => setLocationQuery(location)}
-          onNameSearch={(name) => setNameQuery(name)}
-          handleSearch={() => {}}
-        />
 
-        {results?.type && (
-          <div>
-            <h2>Search results</h2>
-
-            {isLoading && <p>Loading...</p>}
-
-            {results.type === 'hospital' && <HospitalList hospitals={results.data} />}
-          </div>
-        )}
+        <SearchBar />
 
         {!results?.type && (
           <div>
@@ -97,7 +69,6 @@ const Home = () => {
                 Download
               </a>
             </h2>
-            <HospitalList hospitals={hospitals} />
           </div>
         )}
       </div>
