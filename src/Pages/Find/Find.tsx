@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { URLSearchParams } from 'url';
+import MarkdownEditor from '../../Components/MarkdowmEditor/MarkdownEditor';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import './Find.css'
 
@@ -12,7 +13,8 @@ const Find: React.FC = () => {
   const [hospital, setHospital] = useState();
   const [results, setResults] = useState<any>();
 
-  
+  console.log(hospital)
+
   const handleSearch = () => {};
 
   useEffect(() => {
@@ -48,11 +50,15 @@ const Find: React.FC = () => {
           </div>
         )}
       </div>
+    
       <div>
         {isLoading && <div>Loading...</div>}
-        {!isLoading && !hospital && <div>Hospital not found</div>}
+        {!isLoading && !hospital && <div></div>}
         {!isLoading && hospital && <div>{JSON.stringify(hospital)}</div>}
       </div>
+      {/* <div>
+        <MarkdownEditor />
+      </div> */}
     </div>
   );
 };
