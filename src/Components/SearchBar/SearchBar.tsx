@@ -39,16 +39,8 @@ function SearchBar() {
     navigate(`/find?id=${value}`);
   };
 
-  const handleLocationSelect = (props: any) => {
-    if (!props) {
-      setHospitals(allHospitals.map((hospital) => ({ value: hospital.id, label: hospital.name })));
-      return;
-    }
-
-    const selectedHospitals = allHospitals.filter((hospital) => hospital.regionId === props.value);
-    setHospitals(
-      selectedHospitals.map((hospital) => ({ value: hospital.id, label: hospital.name })),
-    );
+  const handleLocationSelect = ({ value }: any) => {
+    navigate(`/find?region=${value}`);
   };
 
   return (
