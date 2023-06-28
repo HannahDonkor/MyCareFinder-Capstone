@@ -1,57 +1,76 @@
-import React from 'react';
-import './SearchBar.css'
-import { FaSearch } from "react-icons/fa";
+import React, { useEffect, useState } from 'react';
+import './SearchBar.css';
+import Select from 'react-select';
+import { useNavigate } from 'react-router-dom';
 
-interface SearchBarProps {
-  onNameSearch: (query: string) => void;
-  onLocationSearch: (location: string) => void;
+type SearchProps = { value: string; label: string };
 
-}
+function SearchBar() {
+  const navigate = useNavigate();
 
-function SearchBar({ onNameSearch, onLocationSearch, handleSearch }: SearchBarProps & { handleSearch: () => void; }) {
+  const [allHospitals, setAllHospitals] = useState<any[]>([]);
+  const [hospitals, setHospitals] = useState<SearchProps[]>([]);
+  const [regions, setRegions] = useState<SearchProps[]>([]);
 
-  // const handleSearch = () => {
-  //   onSearch(name, location);
-  // }; 
+  useEffect(() => {
+    fetch(`https://carefinder-backend.vercel.app/api/hospitals`)
+      .then((res) => res.json())
+      .then((data) => {
+        const _hospitals = data.map((datum: any) => ({ value: datum.id, label: datum.name }));
+        setHospitals(_hospitals);
+        setAllHospitals(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    fetch(`https://carefinder-backend.vercel.app/api/regions`)
+      .then((res) => res.json())
+      .then((data) => {
+        const _regions = data.map((datum: any) => ({ value: datum.id, label: datum.name }));
+        setRegions(_regions);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  const handleHospitalSelect = ({ value }: any) => {
+    navigate(`/find?id=${value}`);
+  };
+
+  const handleLocationSelect = (props: any) => {
+    if (!props) {
+      setHospitals(allHospitals.map((hospital) => ({ value: hospital.id, label: hospital.name })));
+      return;
+    }
+
+    const selectedHospitals = allHospitals.filter((hospital) => hospital.regionId === props.value);
+    setHospitals(
+      selectedHospitals.map((hospital) => ({ value: hospital.id, label: hospital.name })),
+    );
+  };
 
   return (
     <div className="search-container">
       <div className="input-container">
-        <input 
-          type="text" 
-          className="search-input name-input"
+        <Select
           placeholder="Hospital Name"
-          
-          onChange={(e) => onNameSearch(e.target.value)} 
+          className="search-input name-input"
+          options={hospitals}
+          onChange={handleHospitalSelect}
         />
         <div className="input-divider" />
-        <input 
-          type="text" 
-          className="search-input location-input"
+
+        <Select
           placeholder="Location"
-         
-          onChange={(e) => onLocationSearch(e.target.value)} 
+          className="search-input location-input"
+          options={regions}
+          isClearable
+          onChange={handleLocationSelect}
         />
-        <button className="search-button" onClick={handleSearch}>
-          <FaSearch size={20} />
-        </button>
       </div>
     </div>
-    // <div className='for-search'>
-    //   <input
-    //     className='search-bar'
-    //     type="text"
-    //     onChange={(e) => onNameSearch(e.target.value)}
-    //     placeholder="Search hospitals by name..."
-    //   />
-    //   <input
-    //   className="search-bar"
-    //   type="text"
-    //   onChange={(e) => onLocationSearch(e.target.value)}
-    //   placeholder="location, town, city..."
-    //   />
-    //   <FaSearch className='icon'/>
-    // </div>
   );
 }
 
