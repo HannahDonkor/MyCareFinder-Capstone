@@ -6,8 +6,9 @@ import Home from '../Pages/Home/Home';
 import Find from '../Pages/Find/Find';
 import Login from '../Pages/Login/Login';
 import Sign from '../Pages/Sign/Sign';
+import Admin from '../Pages/Admin/Admin';
 
-const Content = () => {
+const Content: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -17,6 +18,7 @@ const Content = () => {
           <Route path="/find" element={<Find />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sign" element={<Sign />} />
+          <Route path="/admin" element={<Admin />} />
         </Route>
       </Routes>
     </BrowserRouter>
